@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -9,18 +11,20 @@ public class EnemySpawner : MonoBehaviour
     {
         int spawnAmountMin = 1;
         int spawnAmountMax = 3;
-        int spawnAmount = Random.Range(spawnAmountMin, spawnAmountMax + 1); 
+        int spawnAmount = UnityEngine.Random.Range(spawnAmountMin, spawnAmountMax + 1); 
 
-        int currentSpawn=0;
-        for(int i = 0; i < spawnAmount; i++ ) {
+        List<int> currentSpawns = new List<int>();
+
+        for (int i = 0; i < spawnAmount; i++) {
             int spawn;
             do {
-                spawn = Random.Range(0, spawnPoints.Length); 
-            } while(spawn == currentSpawn);
+                spawn = UnityEngine.Random.Range(0, spawnPoints.Length);
+            } while (currentSpawns.Contains(spawn));
 
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPoints[spawn].position, spawnPoints[spawn].rotation);
-            currentSpawn = spawn;
+            currentSpawns.Add(spawn);
         }
+
     }
 
     void Update()
