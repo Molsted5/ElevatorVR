@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Threading;
 using System.Collections;
+using System.Security;
 
 public class Shoot : MonoBehaviour
 {
@@ -23,7 +24,10 @@ public class Shoot : MonoBehaviour
 
     public delegate void HitDelegate(RaycastHit hitInfo);
 
-    public event HitDelegate hitEvent; 
+    public event HitDelegate hitEvent;
+
+    public ParticleSystem muzzleflash;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,6 +81,7 @@ public class Shoot : MonoBehaviour
     {
         canShoot = false;
         PlayAudio();
+        muzzleflash.Play();
         Fire();
     
         yield return new WaitForSeconds(cooldownTime);
