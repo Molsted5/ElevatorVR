@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5197779209674996069
+--- !u!1 &2358255078102501141
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1464485752995394288}
-  - component: {fileID: 2654822381596052109}
-  - component: {fileID: 7434267307609756189}
-  - component: {fileID: 5276972299295221648}
-  - component: {fileID: 4942353740741793791}
-  - component: {fileID: 720645289007641637}
-  - component: {fileID: 900769306898665262}
+  - component: {fileID: 988435935811057817}
+  - component: {fileID: 6113471073827711789}
+  - component: {fileID: 2607178256084701603}
+  - component: {fileID: 1439327438857829631}
+  - component: {fileID: 6061654147425091965}
+  - component: {fileID: 2272331228994831932}
+  - component: {fileID: 7507689497603074741}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Emils Bitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1464485752995394288
+--- !u!4 &988435935811057817
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.54, y: 1, z: 1.82}
+  m_LocalPosition: {x: -1.16, y: 1, z: 4.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2654822381596052109
+--- !u!33 &6113471073827711789
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7434267307609756189
+--- !u!23 &2607178256084701603
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ff9df8a109921a3408d5b6f26e7a45ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,13 +90,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5276972299295221648
+--- !u!136 &1439327438857829631
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,13 +113,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!195 &4942353740741793791
+--- !u!195 &6061654147425091965
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
@@ -135,31 +135,31 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &720645289007641637
+--- !u!114 &2272331228994831932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ec91178fe2a68b459d930e05a162245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAgent: {fileID: 4942353740741793791}
+  enemyAgent: {fileID: 6061654147425091965}
   playerTransform: {fileID: 7409689458804038924, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
-  source: {fileID: 900769306898665262}
+  source: {fileID: 7507689497603074741}
   criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
   playerScript: {fileID: 0}
-  health: 100
---- !u!82 &900769306898665262
+  health: 9999
+--- !u!82 &7507689497603074741
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
+  m_GameObject: {fileID: 2358255078102501141}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
