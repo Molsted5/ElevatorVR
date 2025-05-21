@@ -44,12 +44,13 @@ public class Shoot : MonoBehaviour
 
             StartCooldownCoroutione();
 
-        }
+        } 
     }
 
     public void PlayAudio()
     {
         source.clip = shootSoundClip;
+        source.pitch = UnityEngine.Random.Range(1f, 1.5f);
         source.Play();
 
     }
