@@ -21,6 +21,10 @@ public class Shoot : MonoBehaviour
 
     private Coroutine cooldownCoroutine;
 
+    public delegate void HitDelegate(RaycastHit hitInfo);
+
+    public event HitDelegate hitEvent; 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,7 +66,9 @@ public class Shoot : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 2000000, mask, QueryTriggerInteraction.Ignore))
         {
-            Destroy(hitInfo.transform.gameObject);
+           
+            hitEvent(hitInfo);
+           
         }
 
     }
