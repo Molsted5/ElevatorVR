@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
 
     public int health = 90;
 
+    public ParticleSystem bloodsplosion;
+
+   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +41,9 @@ public class Enemy : MonoBehaviour
 
         if(gameObject == enemyOBJ)
         {
+            
+            bloodsplosion.Play();
+           
             int damageTaken = UnityEngine.Random.Range(20, 50);
 
             if(damageTaken >= 39)
