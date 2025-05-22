@@ -10,7 +10,10 @@ public class Enemy : MonoBehaviour
     public AudioClip criticalHit;
 
     public Shoot shootScript;
+    public ScoreManager scoreScript;
+
     public GameObject player;
+    public GameObject scoreManager;
 
     public int health = 90;
 
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour
     {
         enemyCount++;
         shootScript = player.GetComponent<Shoot>();
+        scoreScript = scoreManager.GetComponent<ScoreManager>();
         shootScript.hitEvent += Hit;
         playerTransform = GameObject.Find("Main Camera").transform;  
     }
@@ -63,6 +67,8 @@ public class Enemy : MonoBehaviour
 
             if(health <= 0)
             {
+                scoreScript.Score();
+                Debug.Log(scoreScript.currentScore);
                 Die();
             }
 
