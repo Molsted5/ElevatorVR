@@ -1,9 +1,16 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public int playerHealth = 100;
+
+    private Coroutine invunabilityCoroutine;
+
+    public bool canTakeDMG = true;
+
+    public float invunabilityTime;
 
 
     void Start()
@@ -21,6 +28,15 @@ public class Player : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Target") && canTakeDMG)
+        {
+            StartInvunabilityCoroutione();
+        }
+        
+    }
+
 
     private void DMGTaken()
     {
@@ -33,7 +49,7 @@ public class Player : MonoBehaviour
 
         if(playerHealth <= 1)
         {
-            GameLost();
+           // GameLost();
 
         }
 
@@ -44,6 +60,29 @@ public class Player : MonoBehaviour
     private void GameLost()
     {
 
+
+    }
+
+
+    public void StartInvunabilityCoroutione()
+    {
+        if (invunabilityCoroutine != null)
+        {
+            StopCoroutine(invunabilityCoroutine);
+        }
+        StartCoroutine(Invunability());
+
+    }
+
+    private IEnumerator Invunability()
+    {
+        canTakeDMG = false;
+        
+        DMGTaken();
+        Debug.Log(playerHealth);
+
+        yield return new WaitForSeconds(invunabilityTime);
+        canTakeDMG = true;
 
     }
 

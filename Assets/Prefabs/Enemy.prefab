@@ -5021,6 +5021,7 @@ MonoBehaviour:
   source: {fileID: 900769306898665262}
   criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
   shootScript: {fileID: 0}
+  player: {fileID: 0}
   health: 100
   bloodsplosion: {fileID: 6556370337060612385}
 --- !u!82 &900769306898665262
