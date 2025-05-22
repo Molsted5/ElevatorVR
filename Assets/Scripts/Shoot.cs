@@ -69,7 +69,7 @@ public class Shoot : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 2000000, mask, QueryTriggerInteraction.Ignore))
         {
-            Debug.Log("hit");
+            
             hitEvent(hitInfo);
            
         }
