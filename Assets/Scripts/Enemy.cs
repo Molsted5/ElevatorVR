@@ -21,13 +21,9 @@ public class Enemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         shootScript = player.GetComponent<Shoot>();
         shootScript.hitEvent += Hit;
-        playerTransform = GameObject.Find("Main Camera").transform;
-        
-
-        
+        playerTransform = GameObject.Find("Main Camera").transform;  
     }
 
     // Update is called once per frame
@@ -40,15 +36,14 @@ public class Enemy : MonoBehaviour
        
     }
 
-    public void Hit(RaycastHit hitInfo)
-    {
-        Debug.Log("Hit");
-        
-        GameObject enemyOBJ = hitInfo.transform.gameObject;
+    public void Hit(GameObject hitInfo)
+    {   
+        GameObject enemyOBJ = hitInfo;
 
         if(gameObject == enemyOBJ)
         {
-            
+            Debug.Log( "Hit" );
+
             bloodsplosion.Play();
            
             int damageTaken = UnityEngine.Random.Range(20, 50);
@@ -67,22 +62,14 @@ public class Enemy : MonoBehaviour
                 Die();
             }
 
-
         }
-
-
-
     }
 
     public void Die()
     {
         shootScript.hitEvent -= Hit;
-        Destroy(gameObject);
+        Destroy( gameObject );
 
     }
-
-
-
-
 
 }
