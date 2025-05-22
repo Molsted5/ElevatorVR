@@ -153,6 +153,7 @@ MonoBehaviour:
   source: {fileID: 7507689497603074741}
   criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
   playerScript: {fileID: 0}
+  player: {fileID: 0}
   health: 9999
   bloodsplosion: {fileID: 7193924563104508207}
 --- !u!82 &7507689497603074741
@@ -279,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 5763532698951970517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.29, y: 0.082999945, z: -0.21000004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_ConstrainProportionsScale: 0
   m_Children: []

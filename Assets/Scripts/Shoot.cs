@@ -65,12 +65,11 @@ public class Shoot : MonoBehaviour
 
     public void Fire()
     {
-
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 2000000, mask, QueryTriggerInteraction.Ignore))
         {
-           
+            Debug.Log("hit");
             hitEvent(hitInfo);
            
         }

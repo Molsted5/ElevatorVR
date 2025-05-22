@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     public AudioSource source;
     public AudioClip criticalHit;
 
-    public Shoot playerScript;
+    public Shoot shootScript;
+    public GameObject player;
 
     public int health = 90;
 
@@ -20,7 +21,11 @@ public class Enemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerScript.hitEvent += Hit;
+        
+        shootScript = player.GetComponent<Shoot>();
+        shootScript.hitEvent += Hit;
+        playerTransform = GameObject.Find("Main Camera").transform;
+        
 
         
     }
@@ -32,11 +37,13 @@ public class Enemy : MonoBehaviour
         { 
             enemyAgent.SetDestination(playerTransform.position); 
         }
-
+       
     }
 
     public void Hit(RaycastHit hitInfo)
     {
+        Debug.Log("Hit");
+        
         GameObject enemyOBJ = hitInfo.transform.gameObject;
 
         if(gameObject == enemyOBJ)
@@ -69,7 +76,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        playerScript.hitEvent -= Hit;
+        shootScript.hitEvent -= Hit;
         Destroy(gameObject);
 
     }
