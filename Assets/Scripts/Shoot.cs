@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour
 
     private Coroutine cooldownCoroutine;
 
-    public delegate void HitDelegate(RaycastHit hitInfo);
+    public delegate void HitDelegate(GameObject hitInfo);
 
     public event HitDelegate hitEvent;
 
@@ -39,7 +39,6 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         Shooting();
-
     }
 
 
@@ -69,11 +68,9 @@ public class Shoot : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 2000000, mask, QueryTriggerInteraction.Ignore))
         {
-            
-            hitEvent(hitInfo);
-           
+            Debug.Log("shoot");
+            hitEvent(hitInfo.transform.gameObject);
         }
-
     }
 
     private IEnumerator Cooldown()

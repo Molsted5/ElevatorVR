@@ -4900,7 +4900,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409689458804038924}
-  - component: {fileID: 8558934761611625529}
   m_Layer: 0
   m_Name: Player prefab
   m_TagString: Untagged
