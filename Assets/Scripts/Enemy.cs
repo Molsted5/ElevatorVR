@@ -16,11 +16,15 @@ public class Enemy : MonoBehaviour
 
     public ParticleSystem bloodsplosion;
 
-   
+    public delegate void DeathDelegate(Enemy enemy);
+    public static event DeathDelegate deathEvent;
+
+    public static int enemyCount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        enemyCount++;
         shootScript = player.GetComponent<Shoot>();
         shootScript.hitEvent += Hit;
         playerTransform = GameObject.Find("Main Camera").transform;  
@@ -29,6 +33,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("count: " +  enemyCount);
         if (gameObject != null)
         { 
             enemyAgent.SetDestination(playerTransform.position); 
@@ -56,8 +61,7 @@ public class Enemy : MonoBehaviour
 
             health = health - damageTaken;
 
-
-           if(health <= 0)
+            if(health <= 0)
             {
                 Die();
             }
@@ -67,9 +71,10 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        enemyCount--;
         shootScript.hitEvent -= Hit;
+        deathEvent?.Invoke( this ); // Broadcast globally (static event)
         Destroy( gameObject );
-
     }
 
 }
