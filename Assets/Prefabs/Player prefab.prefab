@@ -4900,7 +4900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409689458804038924}
-  - component: {fileID: 8558934761611625529}
+  - component: {fileID: 874784834259891808}
   m_Layer: 0
   m_Name: Player prefab
   m_TagString: Untagged
@@ -4924,37 +4924,21 @@ Transform:
   - {fileID: 8580807293601936657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8558934761611625529
+--- !u!114 &874784834259891808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190484422259595843}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831dd732e187906498f880f0c755ea8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9448e3e1ea290d3419422b6a77869891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 64
-  shootAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Shoot
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 2d898be2-448d-45fc-b3db-c727a3a12b6e
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  shootSoundClip: {fileID: 8300000, guid: 86299414fa346d341992f6de6f1f989c, type: 3}
-  source: {fileID: 3487885316111887231}
-  cooldownTime: 0.7
-  muzzleflash: {fileID: 2411019109045276803}
+  playerHealth: 100
+  canTakeDMG: 1
+  invunabilityTime: 1
 --- !u!1001 &305597160121114852
 PrefabInstance:
   m_ObjectHideFlags: 0
