@@ -4906,7 +4906,6 @@ GameObject:
   - component: {fileID: 720645289007641637}
   - component: {fileID: 900769306898665262}
   - component: {fileID: 1531320838952849863}
-  - component: {fileID: 46595560752794716}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -4993,7 +4992,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -5021,7 +5020,8 @@ MonoBehaviour:
   playerTransform: {fileID: 7409689458804038924, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
   source: {fileID: 900769306898665262}
   criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
-  playerScript: {fileID: 0}
+  playerScript: {fileID: 8558934761611625529, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
+  player: {fileID: 1190484422259595843, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
   health: 100
   bloodsplosion: {fileID: 6556370337060612385}
 --- !u!82 &900769306898665262
@@ -5122,27 +5122,6 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!65 &1531320838952849863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197779209674996069}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.13, y: 1.47, z: 3.02}
-  m_Center: {x: -0.01, y: 0.1, z: 0.28}
---- !u!65 &46595560752794716
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
