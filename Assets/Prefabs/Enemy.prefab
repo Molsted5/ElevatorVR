@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4057382168708822844}
   serializedVersion: 8
-  lengthInSec: 0.1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5020,8 +5020,7 @@ MonoBehaviour:
   playerTransform: {fileID: 7409689458804038924, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
   source: {fileID: 900769306898665262}
   criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
-  playerScript: {fileID: 8558934761611625529, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
-  player: {fileID: 1190484422259595843, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
+  shootScript: {fileID: 0}
   health: 100
   bloodsplosion: {fileID: 6556370337060612385}
 --- !u!82 &900769306898665262
@@ -5131,7 +5130,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
