@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
 
         if(gameObject == enemyOBJ)
         {
-            Debug.Log( "Hit" );
+           
 
             bloodsplosion.Play();
            
@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour
             {
                 scoreScript.Score();
                 Debug.Log(scoreScript.currentScore);
+                bloodsplosion.Play();
                 Die();
             }
 
