@@ -4992,11 +4992,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -5019,11 +5019,18 @@ MonoBehaviour:
   enemyAgent: {fileID: 4942353740741793791}
   playerTransform: {fileID: 0}
   source: {fileID: 900769306898665262}
-  criticalHit: {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 5857e5389a3d5f040aa9658cc7edf9ea, type: 3}
+  - {fileID: 8300000, guid: 297b72d3b5a4574479d783072ed5f8e7, type: 3}
   shootScript: {fileID: 0}
+  healthScript: {fileID: 0}
+  scoreScript: {fileID: 0}
   player: {fileID: 0}
+  rightController: {fileID: 0}
+  scoreManager: {fileID: 0}
   health: 100
   bloodsplosion: {fileID: 6556370337060612385}
+  enemyAttackRange: 2.5
 --- !u!82 &900769306898665262
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,12 +7,15 @@ public class Enemy : MonoBehaviour
     public Transform playerTransform;
 
     public AudioSource source;
-    public AudioClip criticalHit;
+    public AudioClip[] clips;
 
     public Shoot shootScript;
+    public Player healthScript;
     public ScoreManager scoreScript;
 
+
     public GameObject player;
+    public GameObject rightController;
     public GameObject scoreManager;
 
     public int health = 90;
@@ -22,14 +25,20 @@ public class Enemy : MonoBehaviour
     public delegate void DeathDelegate(Enemy enemy);
     public static event DeathDelegate deathEvent;
 
+
     public static int enemyCount;
+
+    public float enemyAttackRange = 2.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyCount++;
-        shootScript = player.GetComponent<Shoot>();
+        shootScript = rightController.GetComponent<Shoot>();
+        healthScript = player.GetComponent<Player>();
+
         scoreScript = scoreManager.GetComponent<ScoreManager>();
+
         shootScript.hitEvent += Hit;
         playerTransform = GameObject.Find("Main Camera").transform;  
     }
@@ -42,7 +51,16 @@ public class Enemy : MonoBehaviour
         { 
             enemyAgent.SetDestination(playerTransform.position); 
         }
-       
+
+        if ((playerTransform.position - transform.position).magnitude < enemyAttackRange && healthScript.canTakeDMG)
+        {
+            source.clip = clips[1];
+            source.Play();
+            source.pitch = UnityEngine.Random.Range(1f, 1.5f);
+            healthScript.StartInvunabilityCoroutione();
+
+        }
+
     }
 
     public void Hit(GameObject hitInfo)
@@ -59,7 +77,7 @@ public class Enemy : MonoBehaviour
 
             if(damageTaken >= 39)
             {
-                source.clip = criticalHit;        
+                source.clip = clips[0];        
                 source.Play();
             }
 
@@ -68,7 +86,7 @@ public class Enemy : MonoBehaviour
             if(health <= 0)
             {
                 scoreScript.Score();
-                Debug.Log(scoreScript.currentScore);
+               
                 bloodsplosion.Play();
                 Die();
             }
