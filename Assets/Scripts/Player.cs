@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int playerHealth = 100;
+    public int currentHealth = 100;
 
     private Coroutine invunabilityCoroutine;
 
@@ -13,41 +13,82 @@ public class Player : MonoBehaviour
     public float invunabilityTime;
 
 
+    public AudioSource source;
+    public AudioClip[] clips;
+
+
+    // Transform of the camera to shake. Grabs the gameObject's transform
+    // if null.
+    public Transform camTransform;
+
+    // How long the object should shake for.
+    public float shakeDuration = 0f;
+
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.7f;
+    public float decreaseFactor = 1.0f;
+
+    Vector3 originalPos;
+
+    void Awake()
+    {
+        if (camTransform == null)
+        {
+            camTransform = GetComponent(typeof(Transform)) as Transform;
+        }
+    }
+
     void Start()
     {
-
-
         
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        
-    }
-
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("Target") && canTakeDMG)
+        if (shakeDuration > 0)
         {
-            StartInvunabilityCoroutione();
+            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+            shakeDuration -= Time.deltaTime * decreaseFactor;
         }
-        
+        else
+        {
+            shakeDuration = 0f;
+            camTransform.localPosition = originalPos;
+        }
+
+
+    }
+
+    void OnEnable()
+    {
+        originalPos = camTransform.localPosition;
     }
 
 
-    private void DMGTaken()
+
+
+    public void DMGTaken()
     {
 
-        int damageTaken = UnityEngine.Random.Range(20, 50);
 
-        playerHealth = playerHealth - damageTaken;
+        int damageTaken = 2;
+
+        currentHealth = currentHealth - damageTaken;
+
+
+        source.clip = clips[0];
+        source.Play();
+        source.pitch = UnityEngine.Random.Range(.7f, 1f);
+        
 
 
 
-        if(playerHealth <= 1)
+        if (currentHealth <= 1)
         {
            // GameLost();
 
@@ -62,6 +103,8 @@ public class Player : MonoBehaviour
 
 
     }
+
+
 
 
     public void StartInvunabilityCoroutione()
@@ -79,7 +122,7 @@ public class Player : MonoBehaviour
         canTakeDMG = false;
         
         DMGTaken();
-        Debug.Log(playerHealth);
+       
 
         yield return new WaitForSeconds(invunabilityTime);
         canTakeDMG = true;
