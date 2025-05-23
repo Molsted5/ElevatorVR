@@ -590,7 +590,6 @@ GameObject:
   - component: {fileID: 1034528113471618695}
   - component: {fileID: 6588531256533966060}
   - component: {fileID: 7260751217575612826}
-  - component: {fileID: 8547914631936516474}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1174,8 +1173,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1388,14 +1387,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23f155721dd2d784185755ac2218ce88, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6689829107956059825}
+      addedObject: {fileID: 2872904196606275178}
   m_SourcePrefab: {fileID: 100100000, guid: 23f155721dd2d784185755ac2218ce88, type: 3}
 --- !u!1 &184688908441580121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23f155721dd2d784185755ac2218ce88, type: 3}
   m_PrefabInstance: {fileID: 1031689646893977352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6689829107956059825
+--- !u!114 &2872904196606275178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1407,8 +1406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355634b5667396546bd3f0cff860d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreandHealth: {fileID: 3792445976625623586}
+  TextUI: {fileID: 3792445976625623586}
   playerscript: {fileID: 874784834259891808, guid: fd11f2f95c2d3b948871c62cb1f43168, type: 3}
+  scoreScript: {fileID: 7492841444953703970, guid: a446d0b5a3ca2544c9a1b50c34aea755, type: 3}
 --- !u!4 &710430995549858019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23f155721dd2d784185755ac2218ce88, type: 3}
