@@ -12,13 +12,16 @@ public class UIScreen : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerHealth = playerscript.currentHealth;
-        playerScore = scoreScript.currentScore;
+
+  
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+        playerHealth = playerscript.currentHealth;
+        playerScore = scoreScript.currentScore;
         TextUI.text = "Current health: " + playerHealth.ToString() + "<br><br>" + "Current Score: " + playerScore.ToString();
     }
 }
