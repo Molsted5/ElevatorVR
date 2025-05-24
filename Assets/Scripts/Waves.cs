@@ -10,39 +10,44 @@ public class Waves: MonoBehaviour {
     private int midWaySpawn;
 
     void Awake() {
-        // Subscribe to the static death event early
         Enemy.deathEvent += HandleEnemyDeath;
     }
 
-    IEnumerator Start() {
+    void Start() {
         waveNumber = 1;
-
-        // Wait one frame to ensure other scripts have subscribed
-        yield return null;
-
-        Debug.Log( "Invoking initial wave event" );
-        waveEvent?.Invoke( waveNumber );
-
-        // Subscribe to allEnemiesSpawnedEvent after waveEvent is fired
+        StartCoroutine( InvokeWaveEventNextFrame() );
         enemySpawner.allEnemiesSpawnedEvent += HandleAllEnemiesSpawned;
+    }
+
+    IEnumerator InvokeWaveEventNextFrame() {
+        yield return null; // wait one frame so subscribers can register
+        Debug.Log( $"Waves: Invoking waveEvent for wave {waveNumber}" );
+        waveEvent?.Invoke( waveNumber );
     }
 
     private void HandleEnemyDeath( Enemy enemy ) {
         if( Enemy.enemyCount == 1 ) {
             waveNumber++;
-            Debug.Log( $"All enemies defeated. Starting wave {waveNumber}" );
+            Debug.Log( $"Waves: All enemies defeated. Advancing to wave {waveNumber}" );
             waveEvent?.Invoke( waveNumber );
             return;
         }
 
         if( Enemy.enemyCount <= midWaySpawn ) {
-            Debug.Log( $"Mid-wave triggered at enemy count: {Enemy.enemyCount}" );
+            Debug.Log( $"Waves: Mid-wave triggered. Remaining enemies: {Enemy.enemyCount}" );
             waveEvent?.Invoke( waveNumber, midWaySpawn, "MidWave" );
         }
     }
 
     private void HandleAllEnemiesSpawned( int spawnAmount, float enemiesRemaining01 ) {
         midWaySpawn = Mathf.RoundToInt( enemiesRemaining01 * spawnAmount );
-        Debug.Log( $"Mid-wave spawn threshold set to {midWaySpawn} based on {spawnAmount} enemies" );
+        Debug.Log( $"Waves: Mid-wave threshold set to {midWaySpawn} of {spawnAmount} enemies" );
+    }
+
+    void OnDestroy() {
+        Enemy.deathEvent -= HandleEnemyDeath;
+
+        if( enemySpawner != null )
+            enemySpawner.allEnemiesSpawnedEvent -= HandleAllEnemiesSpawned;
     }
 }
