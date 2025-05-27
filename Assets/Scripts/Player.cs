@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public AudioSource source;
     public AudioClip[] clips;
 
+    public UIScreen ui;
 
 
     void Start()
@@ -47,6 +48,8 @@ public class Player : MonoBehaviour
         source.clip = clips[0];
         source.Play();
         source.pitch = UnityEngine.Random.Range(.7f, 1f);
+
+        ui.UpdateScreen();
         
 
 

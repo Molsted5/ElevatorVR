@@ -5028,9 +5028,12 @@ MonoBehaviour:
   player: {fileID: 0}
   rightController: {fileID: 0}
   scoreManager: {fileID: 0}
+  minDMG: 90
+  maxDMG: 90
   health: 100
   bloodsplosion: {fileID: 6556370337060612385}
   enemyAttackRange: 2.5
+  ui: {fileID: 0}
 --- !u!82 &900769306898665262
 AudioSource:
   m_ObjectHideFlags: 0

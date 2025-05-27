@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     public GameObject rightController;
     public GameObject scoreManager;
 
+    public int minDMG = 20;
+    public int maxDMG = 50;
+
     public int health = 90;
 
     public ParticleSystem bloodsplosion;
@@ -29,6 +32,9 @@ public class Enemy : MonoBehaviour
     public static int enemyCount;
 
     public float enemyAttackRange = 2.5f;
+
+    public UIScreen ui;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,7 +78,7 @@ public class Enemy : MonoBehaviour
 
             bloodsplosion.Play();
            
-            int damageTaken = UnityEngine.Random.Range(20, 50);
+            int damageTaken = UnityEngine.Random.Range(minDMG, maxDMG);
 
             if(damageTaken >= 39)
             {
@@ -85,7 +91,8 @@ public class Enemy : MonoBehaviour
             if(health <= 0)
             {
                 scoreScript.Score();
-               
+                ui.UpdateScreen();
+
                 bloodsplosion.Play();
                 Die();
             }
@@ -98,6 +105,7 @@ public class Enemy : MonoBehaviour
         enemyCount--;
         shootScript.hitEvent -= Hit;
         deathEvent?.Invoke( this ); // Broadcast globally (static event)
+        
         Destroy( gameObject );
     }
 
