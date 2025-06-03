@@ -185,10 +185,10 @@ MonoBehaviour:
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1167064709561987243}
-        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_intensity
-        m_Mode: 4
+      - m_Target: {fileID: 23332573894893331}
+        m_TargetAssemblyTypeName: FlareLight, Assembly-CSharp
+        m_MethodName: GrabLightFade
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -200,10 +200,10 @@ MonoBehaviour:
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1167064709561987243}
-        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_intensity
-        m_Mode: 4
+      - m_Target: {fileID: 23332573894893331}
+        m_TargetAssemblyTypeName: FlareLight, Assembly-CSharp
+        m_MethodName: ReleaseLightFade
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -447,11 +447,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flarePrefab: {fileID: 4275218975006252011}
-  grabFadeDuration: 1
-  releaseFadeDuration: 1
-  grabTargetIntensity: 1
-  releaseTargetIntensity: 0
-  despawnDelay: 3
+  grabFadeDuration: 0.8
+  releaseFadeDuration: 1.5
+  grabTargetIntensity: 3
+  releaseTargetIntensity: 8
+  despawnDelay: 8
 --- !u!1 &5177715510724548077
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.76, z: 0}
-  m_LocalScale: {x: 1.3, y: 0.5, z: 1.3}
+  m_LocalScale: {x: 1.45, y: 0.25, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633909977040115417}
@@ -492,7 +492,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177715510724548077}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2802836179478115971
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.76, z: 0}
-  m_LocalScale: {x: 1.3, y: 0.5, z: 1.3}
+  m_LocalScale: {x: 1.45, y: 0.25, z: 1.45}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633909977040115417}
@@ -578,7 +578,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6288809312135114941}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &5638289765075557046
 MeshRenderer:
   m_ObjectHideFlags: 0
